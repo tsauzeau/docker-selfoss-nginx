@@ -1,5 +1,5 @@
 FROM million12/nginx-php:php-55
-MAINTAINER Jan Broer <janeczku@yahoo.de>
+MAINTAINER Thomas Sauzeau <thomas.sauzeau@epitech.eu>
 
 RUN \
   yum update -y && \
@@ -12,7 +12,7 @@ ADD container-files /
 RUN chmod 0644 /etc/cron.d/*
 
 # Get release 2.13 from the side
-ADD https://github.com/SSilence/selfoss/releases/download/2.13/selfoss-2.13.zip /tmp/selfoss-2.13.zip
+ADD https://github.com/SSilence/selfoss/releases/download/2.15/selfoss-2.15.zip /tmp/selfoss-2.15.zip
 RUN mkdir -p /var/www/default && unzip /tmp/selfoss-*.zip -d /var/www/default && rm /tmp/selfoss-*.zip
 
 # Patch base URL method to work with docker port mapping
@@ -33,5 +33,5 @@ RUN \
   mv /etc/nginx/conf.d/default-10-expires.conf /etc/nginx/conf.d/default-10-expires.conf.bak
 
 USER www
-RUN /usr/bin/php /var/www/default/update.php
+RUN /usr/bin/php /var/www/default/cliupdate.php
 USER root

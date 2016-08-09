@@ -1,6 +1,8 @@
 # Selfoss for Docker
 
-This Dockerfile provides the [janeczku/selfoss](https://registry.hub.docker.com/u/janeczku/selfoss/) Selfoss image based on CentOS 7 and a [high performant Nginx and PHP5-FPM stack](https://github.com/million12/docker-nginx-php).
+This Dockerfile provides the [tsauzeau/selfoss](https://registry.hub.docker.com/u/tsauzeau/selfoss/) Selfoss image based on CentOS 7 and a [high performant Nginx and PHP5-FPM 
+stack](https://github.com/million12/docker-nginx-php).
+This is an uptated version of the work of janeczku.
 
 ## About Selfoss
 
@@ -17,7 +19,7 @@ The `/data` volume is initialized on first launch with all necessary files allow
 
 ### Run the image
 
-    docker run -d --name selfoss -p 8080:80 janeczku/selfoss
+    docker run -d --name selfoss -p 8080:80 tsauzeau/selfoss
 
 ### Configuration and maintenance
 
@@ -35,5 +37,5 @@ This image is setup to automatically fetch feed updates every 30 minutes via a c
 
 ## Build your own image
 
-    git clone http://github.com/janeczku/docker-selfoss-nginx.git && cd docker-selfoss-nginx
-    docker build -t janeczku/selfoss .
+    git clone http://github.com/tsauzeau/docker-selfoss-nginx.git && cd docker-selfoss-nginx
+    docker build -t tsauzeau/selfoss .
